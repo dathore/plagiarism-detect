@@ -4,17 +4,17 @@ import { franc } from 'franc';
 import nlp from 'compromise';
 
 // Custom tokenizer for Thai language
-function thaiTokenizer(text) {
+function thaiTokenizer(text: string) {
     return text.split('').filter(token => token.trim().length > 0);
 }
 
 // Custom tokenizer for Lao language
-function laoTokenizer(text) {
+function laoTokenizer(text: string) {
     return text.split('').filter(token => token.trim().length > 0);
 }
 
 // Tokenization function that handles multiple languages
-function tokenize(text, lang) {
+function tokenize(text: string, lang: any) {
     let tokens = [];
     if (lang === 'eng') {
         const doc = nlp(text);
@@ -33,7 +33,7 @@ function tokenize(text, lang) {
 }
 
 // Create shingles (n-grams)
-function createShingles(tokens, n) {
+function createShingles(tokens: any, n: any) {
     let shingles = [];
     for (let i = 0; i <= tokens.length - n; i++) {
         shingles.push(tokens.slice(i, i + n).join(' '));
@@ -42,7 +42,7 @@ function createShingles(tokens, n) {
 }
 
 // Calculate Jaccard similarity
-function jaccardSimilarity(set1, set2) {
+function jaccardSimilarity(set1: string[], set2: string[]) {
     if (set1.length === 0 || set2.length === 0) return 0;
     let intersection = set1.filter(value => set2.includes(value)).length;
     let union = new Set([...set1, ...set2]).size;
@@ -50,7 +50,7 @@ function jaccardSimilarity(set1, set2) {
 }
 
 // Main plagiarism detection function
-export function detectPlagiarism(text1, text2, n = 3) {
+export function detectPlagiarism(text1: any, text2: any, n = 3) {
     const lang1 = franc(text1);
     const lang2 = franc(text2);
 

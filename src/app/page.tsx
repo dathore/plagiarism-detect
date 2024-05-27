@@ -5,9 +5,9 @@ import { detectPlagiarism } from './utils/plagiarism';
 export default function Home() {
   const [text1, setText1] = useState('');
   const [text2, setText2] = useState('');
-  const [result, setResult] = useState(null);
+  const [result, setResult] = useState<any>();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     const { similarity, lang1, lang2 } = detectPlagiarism(text1, text2);
     setResult({ similarity, lang1, lang2 });
@@ -21,8 +21,8 @@ export default function Home() {
           <textarea
             value={text1}
             onChange={(e) => setText1(e.target.value)}
-            rows="5"
-            cols="50"
+            rows={5}
+            cols={50}
             placeholder="ປ້ອນປະໂຫຍກທຳອິດ"
             required
           />
@@ -31,8 +31,8 @@ export default function Home() {
           <textarea
             value={text2}
             onChange={(e) => setText2(e.target.value)}
-            rows="5"
-            cols="50"
+            rows={5}
+            cols={50}
             placeholder="ປ້ອນປະໂຫຍກທີ່ສອງ"
             required
           />
