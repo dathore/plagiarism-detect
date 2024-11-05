@@ -41,7 +41,7 @@ export default function Home() {
           type="submit"
           className='bg-blue-500 hover:bg-blue-400 px-4 py-2 rounded-sm'
         >
-          ກວດສອບ
+          ກວດສອບເດີ
 
         </button>
         <button
